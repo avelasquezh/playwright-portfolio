@@ -1,0 +1,22 @@
+{
+  "name": "playwright-portfolio",
+  "version": "1.0.0",
+  "description": "E2E test automation with Playwright and TypeScript",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avelasquezh/playwright-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avelasquezh/playwright-portfolio/issues"
+  },
+  "homepage": "https://github.com/avelasquezh/playwright-portfolio#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0"
+  }
+}
