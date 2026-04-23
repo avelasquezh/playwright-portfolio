@@ -5,11 +5,12 @@ export class LoginPage {
     readonly usernameInput: Locator;
     readonly passwordInput: Locator;
     readonly loginButton: Locator;
+
     constructor(page: Page) {
         this.page = page;
-        this.usernameInput = page.getByPlaceholder('Username');
-        this.passwordInput = page.getByPlaceholder('Password');
-        this.loginButton   = page.getByRole('button', {name: 'Login'});
+        this.usernameInput = page.getByTestId('username');
+        this.passwordInput = page.getByTestId('password');
+        this.loginButton   = page.getByTestId('login-button');
     }
     async navigate() {
         await this.page.goto('https://www.saucedemo.com/');
