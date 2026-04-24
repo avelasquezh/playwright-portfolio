@@ -1,6 +1,6 @@
 import { type Page, type Locator } from '@playwright/test';
 
-export class Inventory{
+export class InventoryPage{
     readonly page: Page;
     readonly title: Locator;
     

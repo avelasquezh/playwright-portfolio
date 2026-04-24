@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
-import { Inventory } from '../pages/InventoryPage';
+import { InventoryPage } from '../pages/InventoryPage';
 
 test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test ('should add product to cart and show badge count', async ({ page }) => {
-    const inventory = new Inventory(page);
+    const inventory = new InventoryPage(page);
     await inventory.addToCart('add-to-cart-sauce-labs-backpack');
     await expect (await inventory.getCartCount()).toBe(1);
 });
