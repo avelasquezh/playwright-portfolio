@@ -12,10 +12,10 @@ export class LoginPage {
         this.passwordInput = page.getByTestId('password');
         this.loginButton   = page.getByTestId('login-button');
     }
-    async navigate() {
-        await this.page.goto(process.env.BASE_URL as string);
+    async navigate(): Promise<void> {
+        await this.page.goto(process.env.BASE_URL!);
     }   
-    async login(usuario: string, contraseña: string) {
+    async login(usuario: string, contraseña: string): Promise<void> {
         await this.usernameInput.fill(usuario);
         await this.passwordInput.fill(contraseña);
         await this.loginButton.click();

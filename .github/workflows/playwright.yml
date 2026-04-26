@@ -17,6 +17,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Execute static review
+      run: npm run lint
     - name: Run Playwright tests
       env:
         BASE_URL: ${{ secrets.BASE_URL }}

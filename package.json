@@ -2,8 +2,12 @@
   "name": "playwright-portfolio",
   "version": "1.0.0",
   "description": "E2E test automation with Playwright and TypeScript",
+  "type": "module",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint .",
+    "test": "playwright test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/avelasquezh/playwright-portfolio.git"
@@ -16,8 +20,11 @@
   },
   "homepage": "https://github.com/avelasquezh/playwright-portfolio#readme",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.6.0",
-    "dotenv": "^17.4.2"
+    "dotenv": "^17.4.2",
+    "eslint": "^10.2.1",
+    "typescript-eslint": "^8.59.0"
   }
 }

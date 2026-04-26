@@ -9,7 +9,7 @@ export class InventoryPage{
         this.title = page.getByTestId('title');
     }
 
-    async addToCart(product: string) {//cada ves que se llame a una función asincrona se requiere usar await
+    async addToCart(product: string): Promise<void> {//cada ves que se llame a una función asincrona se requiere usar await
         const productLocator = this.page.getByTestId(product)
         await productLocator.click();//cada ves que se llame a una función asincrona se requiere usar await
     }

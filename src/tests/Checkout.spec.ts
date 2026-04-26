@@ -1,10 +1,10 @@
 import {test, expect} from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { InventoryPage } from '../pages/InventoryPage';
-import { CartPage } from '../pages/CartPage';
-import { CheckoutPage } from '../pages/CheckoutPage';
-import { CheckoutOverviewPage } from '../pages/CheckoutOverviewPage';
-import {loginData, checkoutData, inventoryProducts} from '../fixtures/test-data';
+import { LoginPage } from '../pages/LoginPage.js';
+import { InventoryPage } from '../pages/InventoryPage.js';
+import { CartPage } from '../pages/CartPage.js';
+import { CheckoutPage } from '../pages/CheckoutPage.js';
+import { CheckoutOverviewPage } from '../pages/CheckoutOverviewPage.js';
+import {loginData, checkoutData, inventoryProducts} from '../fixtures/test-data.js';
 
 test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);

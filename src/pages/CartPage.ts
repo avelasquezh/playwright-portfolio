@@ -11,7 +11,7 @@ export class CartPage{
         this.checkoutBtn = page.getByTestId('checkout');
     }
     
-    async navigateToCheckout(){
+    async navigateToCheckout(): Promise<void> {
         await this.checkoutBtn.click();
     }
 

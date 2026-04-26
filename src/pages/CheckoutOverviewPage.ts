@@ -12,7 +12,7 @@ export class CheckoutOverviewPage{
         this.continueButton = page.getByTestId('finish');
     }
 
-    async finishCheckout(){
+    async finishCheckout(): Promise<void> {
         await this.continueButton.click();
     }
 }

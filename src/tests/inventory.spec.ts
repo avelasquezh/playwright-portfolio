@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { InventoryPage } from '../pages/InventoryPage';
-import { loginData, inventoryProducts} from '../fixtures/test-data';
+import { LoginPage } from '../pages/LoginPage.js';
+import { InventoryPage } from '../pages/InventoryPage.js';
+import { loginData, inventoryProducts} from '../fixtures/test-data.js';
 
 test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);

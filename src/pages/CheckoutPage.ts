@@ -17,7 +17,7 @@ export class CheckoutPage{
         this.continueButton = page.getByTestId('continue');
     }
     
-    async sendCheckout(nombre: string, apellido: string, codigoPostal: string){
+    async sendCheckout(nombre: string, apellido: string, codigoPostal: string): Promise<void> {
         await this.nameInput.fill(nombre);
         await this.lastNameInput.fill(apellido);
         await this.postalCodeInput.fill(codigoPostal);

@@ -1,18 +1,18 @@
 export const loginData ={
         
     user:{
-        validUser: process.env.VALID_USER as string,
-        lockedUser: process.env.LOCKED_USER as string,
-        problemUser: process.env.PROBLEM_USER as string,
-        glitchedUser: process.env.GLITCHED_USER as string,
-        errorUser: process.env.ERROR_USER as string,
-        visualUser: process.env.VISUAL_USER as string,
+        validUser: process.env.VALID_USER!,
+        lockedUser: process.env.LOCKED_USER!,
+        problemUser: process.env.PROBLEM_USER!,
+        glitchedUser: process.env.GLITCHED_USER!,
+        errorUser: process.env.ERROR_USER!,
+        visualUser: process.env.VISUAL_USER!,
         voidUser: '',
     },
 
     pasword:{
-        validPassword: process.env.VALID_PASSWORD as string,
-        wrongPassword: process.env.INVALID_PASSWORD as string,
+        validPassword: process.env.VALID_PASSWORD!,
+        wrongPassword: process.env.INVALID_PASSWORD!,
         voidPassword: '',
     }
 }
