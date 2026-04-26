@@ -18,7 +18,6 @@ export class InventoryPage{
         if (!badge) {
             return 0;
         }
-        console.log(badge);
         return Number(badge);
     }
 }

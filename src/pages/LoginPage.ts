@@ -13,7 +13,7 @@ export class LoginPage {
         this.loginButton   = page.getByTestId('login-button');
     }
     async navigate() {
-        await this.page.goto('https://www.saucedemo.com/');
+        await this.page.goto(process.env.BASE_URL as string);
     }   
     async login(usuario: string, contraseña: string) {
         await this.usernameInput.fill(usuario);
