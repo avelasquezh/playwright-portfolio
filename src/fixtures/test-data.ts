@@ -10,7 +10,7 @@ export const loginData ={
         voidUser: '',
     },
 
-    pasword:{
+    password:{
         validPassword: process.env.VALID_PASSWORD!,
         wrongPassword: process.env.INVALID_PASSWORD!,
         voidPassword: '',
