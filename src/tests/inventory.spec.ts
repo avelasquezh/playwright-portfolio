@@ -2,7 +2,7 @@ import { test, expect } from 'allure-playwright';
 import { LoginPage } from '../pages/LoginPage.js';
 import { InventoryPage } from '../pages/InventoryPage.js';
 import { loginData, inventoryProducts} from '../fixtures/test-data.js';
-import { label, epic, feature, story, severity, description } from 'allure-js-commons';
+import { label, epic, feature, story, severity, description} from 'allure-js-commons';
 import { Severity } from 'allure-js-commons';
 
 test.beforeEach(async ({ page }) => {

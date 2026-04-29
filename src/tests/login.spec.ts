@@ -1,7 +1,7 @@
 import { test, expect } from 'allure-playwright'; 
 import { LoginPage } from '../pages/LoginPage.js';
 import { loginData} from '../fixtures/test-data.js';
-import { label, epic, feature, story, severity, description, Severity, parameter } from 'allure-js-commons';
+import { label, epic, feature, story, severity, description, Severity} from 'allure-js-commons';
 
 
 test ('should display products page after successful login', async ({ page }) => {

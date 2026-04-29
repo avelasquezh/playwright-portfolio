@@ -1,5 +1,4 @@
 import { type Page, type Locator } from '@playwright/test';
-import { parameter } from 'allure-js-commons';
 
 export class LoginPage {
     readonly page: Page;
