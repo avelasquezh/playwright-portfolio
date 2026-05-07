@@ -40,7 +40,7 @@ export const inventoryProducts = {
     },
 
     sauceLabsBikeLight: {
-        sauceLabsBikeLightBTN: 'add-to-cart-Sauce-Labs-Bike-Light',
+        sauceLabsBikeLightBTN: 'add-to-cart-sauce-labs-bike-light',
         sauceLabsBikeLightName: 'Sauce Labs Bike Light',
     },
 

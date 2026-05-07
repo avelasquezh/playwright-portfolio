@@ -10,7 +10,7 @@ test ('should display products page after successful login', async ({ page }) =>
     await feature('Authentication');
     await story('Login');
     await severity(Severity.CRITICAL);
-    await description('Checks the succesfull login for a valid user.');
+    await description('Checks the successful login for a valid user.');
 
     const loginPage = new LoginPage(page);
     await loginPage.navigate();
@@ -24,7 +24,7 @@ test ('should not display products page after unsuccessful login', async ({ page
     await feature('Authentication');
     await story('Login');
     await severity(Severity.NORMAL);
-    await description('Checks the unsuccesfull login for a invalid user.');
+    await description('Checks the unsuccessful login for a invalid user.');
 
     const loginPage = new LoginPage(page);
     await loginPage.navigate();
@@ -38,7 +38,7 @@ test ('should not allow the acces for a locked user', async ({ page }) => {
     await feature('Authentication');
     await story('Login');
     await severity(Severity.NORMAL);
-    await description('Checks the unsuccesfull login for a locked user.');
+    await description('Checks the unsuccessful login for a locked user.');
 
     const loginPage = new LoginPage(page);
     await loginPage.navigate();

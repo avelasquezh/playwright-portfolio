@@ -24,7 +24,7 @@ test ('should complete checkout successfully with valid customer data', async ({
     await feature('Checkout');
     await story('Checkout Form');
     await severity(Severity.CRITICAL);
-    await description('Checks the succesfull checkout with valid customer information.');
+    await description('Checks the successful checkout with valid customer information.');
 
     const cartPage = new CartPage(page);
     await expect (cartPage.title).toHaveText('Your Cart');
@@ -56,7 +56,7 @@ test.describe('checkout form validation with invalid inputs', () => {
         await feature('Checkout');
         await story('Checkout Form');
         await severity(Severity.NORMAL);
-        await description('Checks the unsuccesfull checkout with invalid customer name.');
+        await description('Checks the unsuccessful checkout with invalid customer name.');
 
         const checkoutPage = new CheckoutPage(page);
         await expect (checkoutPage.title).toHaveText('Checkout: Your Information');
@@ -71,7 +71,7 @@ test.describe('checkout form validation with invalid inputs', () => {
         await feature('Checkout');
         await story('Checkout Form');
         await severity(Severity.NORMAL);
-        await description('Checks the unsuccesfull checkout with invalid customer last name.');
+        await description('Checks the unsuccessful checkout with invalid customer last name.');
 
         const checkoutPage = new CheckoutPage(page);
         await expect (checkoutPage.title).toHaveText('Checkout: Your Information');
@@ -85,7 +85,7 @@ test.describe('checkout form validation with invalid inputs', () => {
         await feature('Checkout');
         await story('Checkout Form');
         await severity(Severity.NORMAL);
-        await description('Checks the unsuccesfull checkout with invalid customer postal code.');
+        await description('Checks the unsuccessful checkout with invalid customer postal code.');
 
         const checkoutPage = new CheckoutPage(page);
         await expect (checkoutPage.title).toHaveText('Checkout: Your Information');

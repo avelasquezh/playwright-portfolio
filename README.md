@@ -77,42 +77,46 @@ Professional reporting and CI/CD integration
 Metrics 
 
 Total automated Tests
-    8 test cases including login tests (valid and invalid, locked or wrong credentials), inventory tests an checkout tests
+    11 test cases including login (valid and invalid, locked or wrong credentials), inventory, checkout and logout.
 
 Severity Distribution
-    Total test cases: 8 (3 Critical, 5 Normal)
+    Total test cases: 11 (6 Critical, 5 Normal)
 
 Severity Distribution per feature
     Authentication 
-        - Critical 1 - 12.5%
-        - Normal 2 - 25%
-
-    Checkout
-        - Critical 1 - 12.5%
-        - Normal 3 - 37.5%
+        - Critical  3 - 27.2%
+        - Normal    2 - 18.1%
 
     Inventory
-        - Critical 1 - 12.5%
+        - Critical  2 - 18.1%
+
+    Checkout
+        - Critical  1 - 09.0%
+        - Normal    3 - 27.2%
+
 
 Average execution time per suite
-     2s,74ms
 
+    Login      3.86s
+    Inventory  9.25s
+    Checkout   9.77s
+    Logout     5.00s
+    
 Coverage of critical business flows
 
     Critical business flows
-        - Succesfull login 1
-        - Failed login 3
-        - Inventory verification 1
-        - Add product to cart 1
+        - Successful login 1
+        - Failed login 2
+        - Add products to cart 2
         - Complete checkout 4
-        - Logout 1
+        - Logout 2
 
     Critical business flows automated
-        - Succes login 1
-        - Failed login 3
-        - Inventory verification 1
-        - Add product to cart 1
+        - Successful login 1
+        - Failed login 2
+        - Add products to cart 2
         - Complete checkout 4
+        - Logout 2
 
     Residual risks
         The automated suite reduces the risk of regression in critical flows; however, residual risk still exists due to some flows that may occur and are listed below. It should be clarified that these flows are not included in the automations because their probability of occurrence is low and because they are flows with greater automation complexity.
@@ -124,7 +128,7 @@ Coverage of critical business flows
         Current estimated residual risk: Medium
 
 Coverage
-    (5/6) *100 = 83.3 %
+    (6/6) * 100 = 100%
 
 Defects identified during exploratory testing
     Id: 001
