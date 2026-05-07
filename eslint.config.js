@@ -8,7 +8,9 @@ export default [
       'playwright.config.ts',
       'node_modules/',
       'dist/',
-      'coverage/'
+      'coverage/',
+      'allure-report/**',
+      'allure-results/**',
     ]
   },
   js.configs.recommended,
