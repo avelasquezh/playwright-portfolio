@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
-import { ICustomWorld } from '../support/world.js';
+import type{ ICustomWorld } from '../support/world.js';
 import { LoginPage } from '../pages/LoginPage.js';
 import { loginData } from '../fixtures/test-data.js';
 

@@ -11,6 +11,7 @@ export default [
       'coverage/',
       'allure-report/**',
       'allure-results/**',
+      'cucumber.js'
     ]
   },
   js.configs.recommended,

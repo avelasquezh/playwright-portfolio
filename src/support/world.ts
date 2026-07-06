@@ -1,6 +1,7 @@
 import 'dotenv/config';
-import { setWorldConstructor, World, IWorldOptions, setDefaultTimeout  } from '@cucumber/cucumber';
-import { Browser, BrowserContext, Page, chromium } from '@playwright/test';
+import { setWorldConstructor, World, setDefaultTimeout  } from '@cucumber/cucumber';
+import type { IWorldOptions} from '@cucumber/cucumber';
+import type { BrowserContext, Page, Browser } from '@playwright/test';
 
 setDefaultTimeout(30000);
 export interface ICustomWorld extends World {

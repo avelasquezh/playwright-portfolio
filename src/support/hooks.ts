@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { Before, After } from '@cucumber/cucumber';
 import { chromium } from '@playwright/test';
-import { ICustomWorld } from './world.js';
+import type{ ICustomWorld } from './world.js';
 
 
 Before({ timeout: 30000 }, async function (this: ICustomWorld) {
