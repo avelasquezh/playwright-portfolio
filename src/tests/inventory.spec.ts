@@ -21,7 +21,7 @@ test ('should add product to cart and show badge count', async ({ page }) => {
     await description('Checks the successful add to cart process and badge count.');
 
     const inventory = new InventoryPage(page);
-    await inventory.addToCart(inventoryProducts.sauceLabsBackpack.sauceLabsBackpackBTN);
+    await inventory.addToCart(inventoryProducts.Backpack.BTN);
     expect(await inventory.getCartCount()).toBe(1);
 });
 
@@ -34,8 +34,8 @@ test ('should add multiple products to cart and show badge count', async ({ page
     await description('Checks the successful multiple products add to cart process and badge count.');
 
     const inventory = new InventoryPage(page);
-    await inventory.addToCart(inventoryProducts.sauceLabsBackpack.sauceLabsBackpackBTN);
+    await inventory.addToCart(inventoryProducts.Backpack.BTN);
     await expect (page.getByTestId('remove-sauce-labs-backpack')).toHaveText('Remove');
-    await inventory.addToCart(inventoryProducts.sauceLabsBikeLight.sauceLabsBikeLightBTN);
+    await inventory.addToCart(inventoryProducts.BikeLight.BTN);
     expect(await inventory.getCartCount()).toBe(2);
 });

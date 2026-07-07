@@ -8,7 +8,11 @@ Feature: User Authentication
 
   Scenario: Successful login with valid credentials
     When I login with valid credentials
-    Then I should see the products page
+    Then I can see the products page
+
+  Scenario: Login fails with locked credentials
+    When I login with locked user
+    Then I can see the error message
 
   Scenario Outline: Login fails with invalid credentials
     When I login with "<username>" and "<password>"

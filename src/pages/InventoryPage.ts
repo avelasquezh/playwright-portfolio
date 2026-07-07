@@ -10,11 +10,11 @@ export class InventoryPage{
     }
 
     async addToCart(product: string): Promise<void> {//cada ves que se llame a una función asincrona se requiere usar await
-        const productLocator = this.page.getByTestId(product)
+        const productLocator = this.page.locator(`[data-test="${product}"]`);
         await productLocator.click();//cada ves que se llame a una función asincrona se requiere usar await
     }
     async getCartCount(): Promise<number> {
-        const badge = (await this.page.getByTestId('shopping-cart-badge')?.textContent())?.trim();
+        const badge = (await this.page.locator('[data-test="shopping-cart-badge"]')?.textContent())?.trim();
         if (!badge) {
             return 0;
         }

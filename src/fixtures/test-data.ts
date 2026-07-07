@@ -34,33 +34,33 @@ export const checkoutData ={
     },
 }
 export const inventoryProducts = {
-    sauceLabsBackpack: {
-        sauceLabsBackpackBTN: 'add-to-cart-sauce-labs-backpack',
-        sauceLabsBackpackName: 'Sauce Labs Backpack',
+    Backpack: {
+        BTN: 'add-to-cart-sauce-labs-backpack',
+        Name: 'Sauce Labs Backpack',
     },
 
-    sauceLabsBikeLight: {
-        sauceLabsBikeLightBTN: 'add-to-cart-sauce-labs-bike-light',
-        sauceLabsBikeLightName: 'Sauce Labs Bike Light',
+    BikeLight: {
+        BTN: 'add-to-cart-sauce-labs-bike-light',
+        Name: 'Sauce Labs Bike Light',
     },
 
-    sauceLabsBoltTShirt: {
-        sauceLabsBoltTShirtBTN: 'add-to-cart-Sauce-Labs-Bolt-T-Shirt',
-        sauceLabsBoltTShirtName: 'Sauce Labs Bolt T-Shirt',
+    BoltTShirt: {
+        BTN: 'add-to-cart-Sauce-Labs-Bolt-T-Shirt',
+        Name: 'Sauce Labs Bolt T-Shirt',
     },
 
-    sauceLabsFleeceJacket: {
-        sauceLabsFleeceJacketBTN: 'add-to-cart-Sauce-Labs-Fleece-Jacket',
-        sauceLabsFleeceJacketName: 'Sauce Labs Fleece Jacket',
+    FleeceJacket: {
+        BTN: 'add-to-cart-Sauce-Labs-Fleece-Jacket',
+        Name: 'Sauce Labs Fleece Jacket',
     },
 
-    sauceLabsOnesie: {
-        sauceLabsOnesieBTN: 'add-to-cart-Sauce-Labs-Onesie',
-        sauceLabsOnesieName: 'Sauce Labs Onesie',
+    Onesie: {
+        BTN: 'add-to-cart-Sauce-Labs-Onesie',
+        Name: 'Sauce Labs Onesie',
     },
 
-    testAllTheThingsTShirtRed: {
-        testAllTheThingsTShirtRedBTN: 'add-to-cart-Test.allTheThings()-T-Shirt-(Red)',
-        testAllTheThingsTShirtRedName: 'Test.allTheThings() T-Shirt (Red)',
+    TShirtRed: {
+        BTN: 'add-to-cart-Test.allTheThings()-T-Shirt-(Red)',
+        Name: 'Test.allTheThings() T-Shirt (Red)',
     },    
 }

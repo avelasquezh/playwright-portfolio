@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
     await loginPage.login(loginData.user.validUser, loginData.password.validPassword);
     await expect (page.getByTestId('title')).toBeVisible();
     const inventory = new InventoryPage(page);
-    await inventory.addToCart(inventoryProducts.sauceLabsBackpack.sauceLabsBackpackBTN);
+    await inventory.addToCart(inventoryProducts.Backpack.BTN);
     expect(await inventory.getCartCount()).toBe(1);
     await page.getByTestId('shopping-cart-link').click(); 
 });
@@ -28,14 +28,14 @@ test ('should complete checkout successfully with valid customer data', async ({
 
     const cartPage = new CartPage(page);
     await expect (cartPage.title).toHaveText('Your Cart');
-    await expect (page.getByTestId('inventory-item-name')).toHaveText(inventoryProducts.sauceLabsBackpack.sauceLabsBackpackName);
+    await expect (page.getByTestId('inventory-item-name')).toHaveText(inventoryProducts.Backpack.Name);
     await cartPage.navigateToCheckout();
     const checkoutPage = new CheckoutPage(page);
     await expect (checkoutPage.title).toHaveText('Checkout: Your Information');
     await checkoutPage.sendCheckout(checkoutData.name.validName, checkoutData.lastName.validLastName, checkoutData.postalCode.validPostalCode);
     const checkoutOverviewPage = new CheckoutOverviewPage(page);
     await expect (checkoutOverviewPage.title).toHaveText('Checkout: Overview');
-    await expect (page.getByTestId('inventory-item-name')).toHaveText(inventoryProducts.sauceLabsBackpack.sauceLabsBackpackName);
+    await expect (page.getByTestId('inventory-item-name')).toHaveText(inventoryProducts.Backpack.Name);
     await checkoutOverviewPage.finishCheckout();
     await expect (page.getByTestId('title')).toHaveText('Checkout: Complete!');
     await expect (page.getByTestId('complete-header')).toHaveText('Thank you for your order!');
@@ -46,7 +46,7 @@ test.describe('checkout form validation with invalid inputs', () => {
     test.beforeEach(async ({ page }) => {
         const cartPage = new CartPage(page);
         await expect (cartPage.title).toHaveText('Your Cart');
-        await expect (page.getByTestId('inventory-item-name')).toHaveText(inventoryProducts.sauceLabsBackpack.sauceLabsBackpackName);
+        await expect (page.getByTestId('inventory-item-name')).toHaveText(inventoryProducts.Backpack.Name);
         await cartPage.navigateToCheckout();
     });
 
