@@ -7,8 +7,8 @@ export class CartPage{
     
     constructor(page: Page) {
         this.page = page;
-        this.title = page.getByTestId('title');
-        this.checkoutBtn = page.getByTestId('checkout');
+        this.title = page.locator('[data-test="title"]');
+        this.checkoutBtn = page.locator('[data-test="checkout"]');
     }
     
     async navigateToCheckout(): Promise<void> {
