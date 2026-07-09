@@ -2,8 +2,8 @@ import 'dotenv/config';
 import { When, Then } from '@cucumber/cucumber';
 import type { ICustomWorld } from '../support/world.js';
 import { expect } from '@playwright/test';
-import { CheckoutPage } from '../pages/checkoutPage.js';
-import { CartPage } from '../pages/cartPage.js';
+import { CheckoutPage } from '../pages/CheckoutPage.js';
+import { CartPage } from '../pages/CartPage.js';
 import { checkoutData} from '../fixtures/test-data.js';
 
 When ('I go to checkout page', async function(this: ICustomWorld) {

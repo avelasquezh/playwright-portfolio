@@ -6,8 +6,9 @@ Feature: logout
     Background:
         Given   I am on the login page
         And     I login with valid credentials
-        When     I am loged in the Saucedemo application
+        And     I am loged in the Saucedemo application
 
     Scenario:
         When    I select logout option
         Then    I can finish the session
+
