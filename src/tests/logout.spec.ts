@@ -1,14 +1,9 @@
 import { test, expect } from 'allure-playwright'; 
 import { NavbarPage } from '../pages/components/NavbarPage.js';
-import { LoginPage } from '../pages/LoginPage.js';
-import { loginData} from '../fixtures/test-data.js';
 import { label, epic, feature, story, severity, description, Severity} from 'allure-js-commons';
 
 test.beforeEach(async ({ page }) => {
-    const loginPage = new LoginPage(page);
-    await loginPage.navigate();
-    await loginPage.login(loginData.user.validUser, loginData.password.validPassword);
-    await expect (page.getByTestId('title')).toBeVisible();
+    await page.goto('/inventory.html');
 });
 
 

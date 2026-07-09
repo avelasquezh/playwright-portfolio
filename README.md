@@ -1,183 +1,369 @@
-# playwright-portfolio
-E2E test automation with Playwright and TypeScript
-Description
+# Playwright Portfolio
 
-This project implements end-to-end (E2E) test automation for SauceDemo using Playwright with TypeScript.
+End-to-End (E2E) test automation framework built with **Playwright**, **TypeScript**, and **Cucumber**, following modern QA Automation and SDET best practices.
 
-The goal is to demonstrate a robust, maintainable, and scalable test automation framework following industry best practices.
+---
 
-Tech Stack
-Playwright – Browser automation
-TypeScript – Strong typing and code reliability
-ESLint (strict configuration) – Code quality enforcement
-Allure Framework – Advanced test reporting
-dotenv – Secure environment variable management
-Project Structure
+# Description
+
+This project demonstrates a scalable, maintainable, and production-oriented automation framework for **SauceDemo**.
+
+The repository contains two automation approaches:
+
+- **Playwright Test** for functional E2E automation.
+- **Cucumber (BDD)** using Gherkin feature files and reusable step definitions.
+
+The framework follows industry best practices including:
+
+- Page Object Model (POM)
+- Session Caching (storageState)
+- Centralized test data
+- Static code analysis
+- CI/CD integration
+- Advanced reporting
+- Strong TypeScript typing
+
+---
+
+# Tech Stack
+
+- Playwright
+- TypeScript
+- Cucumber (BDD)
+- Page Object Model (POM)
+- ESLint (Strict Configuration)
+- GitHub Actions
+- Allure Framework
+- dotenv
+
+---
+
+# Project Structure
+
+```text
 src/
- ├── pages/        # Page Object Model (POM)
- ├── tests/        # Test specifications
- ├── fixtures/     # Test data and configuration
+│
+├── features/          # Gherkin feature files
+├── steps/             # Cucumber step definitions
+├── pages/             # Page Objects
+├── fixtures/          # Test data
+├── support/           # Hooks and World
+├── tests/             # Playwright Test suites
+└── utils/
+```
 
-The framework follows a clear separation of concerns:
+Additional directories
 
-Page Objects → UI interactions
-Tests → business flows
-Fixtures → test data management
-Features
-Page Object Model (POM) design pattern
-Centralized and typed test data
-Secure handling of credentials using .env
-Strict linting rules for TypeScript
-Scalable and maintainable architecture
-Clean and readable test structure
-Reporting
+```text
+.github/workflows/     # GitHub Actions pipeline
 
-Test results are integrated with Allure Framework, providing:
+playwright/.auth/      # Cached authenticated session
 
-Execution details and traceability
-Severity classification (critical, normal, etc.)
-Test metadata (epic, feature, story)
-Historical trends (when configured)
+allure-results/
+allure-report/
+
+reports/
+```
+
+---
+
+# Features
+
+- Page Object Model (POM)
+- Playwright Test
+- Cucumber (BDD)
+- Reusable Page Objects
+- Typed fixtures
+- Centralized test data
+- Session Caching using storageState
+- Secure credentials using .env
+- Strict TypeScript linting
+- GitHub Actions CI/CD
+- Allure reporting
+- Modular architecture
+- Separation of concerns
+
+---
+
+# Session Caching
+
+The framework implements Playwright's **storageState** mechanism.
+
+Authentication is executed only once using **auth.setup.ts**, generating a reusable authenticated session stored in:
+
+```text
+playwright/.auth/user.json
+```
+
+Business tests reuse this session instead of performing the login flow repeatedly.
+
+Benefits
+
+- Faster execution
+- Reduced duplicated code
+- Lower maintenance effort
+- Better separation between authentication and business scenarios
+
+Current execution time after enabling Session Caching:
+
+**Approximately 23 seconds** for the complete Playwright suite.
+
+---
+
+# Reporting
+
+The framework integrates **Allure Framework** providing:
+
+- Execution details
+- Severity classification
+- Epic
+- Feature
+- Story
+- Test traceability
+- Historical trends (when configured)
 
 Reports can be:
 
-generated locally
-uploaded as CI artifacts
-published via GitHub Pages
-CI/CD Integration
+- Generated locally
+- Uploaded as GitHub Actions artifacts
+- Published through GitHub Pages
 
-The project includes integration with GitHub Actions:
+---
 
-Automated test execution on push
-Allure report generation
-Artifact upload
-Optional deployment to GitHub Pages
-Quality Standards
-Strict ESLint configuration for TypeScript
-Type-safe test data handling
-Consistent coding standards
-Clean separation of responsibilities
-Scope
+# CI/CD
 
-The automated flows focus on critical business scenarios:
+The project includes a GitHub Actions pipeline.
 
-User authentication
-Product inventory validation
-Add to cart
-Checkout process
-Objective
+Pipeline stages:
 
-This project is designed to showcase:
+- Install dependencies
+- Install Playwright browsers
+- Static code analysis (ESLint)
+- Execute Playwright tests
+- Generate Allure Report
+- Upload execution artifacts
 
-Modern E2E automation practices
-Strong TypeScript usage
-Clean architecture and maintainability
-Professional reporting and CI/CD integration
+Execution is automatically triggered on:
 
-Metrics 
+- Push
+- Pull Request
 
-Total automated Tests
-    11 test cases including login (valid and invalid, locked or wrong credentials), inventory, checkout and logout.
+---
 
-Severity Distribution
-    Total test cases: 11 (6 Critical, 5 Normal)
+# Quality Standards
 
-Severity Distribution per feature
-    Authentication 
-        - Critical  3 - 27.2%
-        - Normal    2 - 18.1%
+- Strict TypeScript configuration
+- ESLint Type-Aware Rules
+- Strong typing
+- Page Object Model
+- Separation of responsibilities
+- Reusable components
+- Secure Secrets management
+- Session reuse
 
-    Inventory
-        - Critical  2 - 18.1%
+---
 
-    Checkout
-        - Critical  1 - 09.0%
-        - Normal    3 - 27.2%
+# Automated Scope
 
+## Playwright Test
 
-Average execution time per suite
+- Login
+- Logout
+- Inventory
+- Cart
+- Checkout
 
-    Login      3.86s
-    Inventory  9.25s
-    Checkout   9.77s
-    Logout     5.00s
-    
-Coverage of critical business flows
+## Cucumber (BDD)
 
-    Critical business flows
-        - Successful login 1
-        - Failed login 2
-        - Add products to cart 2
-        - Complete checkout 4
-        - Logout 2
+- Login
+- Logout
+- Inventory
+- Checkout
 
-    Critical business flows automated
-        - Successful login 1
-        - Failed login 2
-        - Add products to cart 2
-        - Complete checkout 4
-        - Logout 2
+---
 
-    Residual risks
-        The automated suite reduces the risk of regression in critical flows; however, residual risk still exists due to some flows that may occur and are listed below. It should be clarified that these flows are not included in the automations because their probability of occurrence is low and because they are flows with greater automation complexity.
+# Available Commands
 
-        - Checkout behavior upon browser reload
-        - Session behavior after prolonged time
-        - Checkout completion in a different session
-        
-        Current estimated residual risk: Medium
+## Run Playwright Tests
+
+```bash
+npm test
+```
+
+## Run Cucumber Tests
+
+```bash
+npm run cucumber
+```
+
+## Execute ESLint
+
+```bash
+npm run lint
+```
+
+## Generate Allure Report
+
+```bash
+npm run allure:generate
+```
+
+## Open Allure Report
+
+```bash
+npm run allure:open
+```
+
+## Serve Allure Report
+
+```bash
+npm run allure:serve
+```
+
+---
+
+# Metrics
+
+## Automated Tests
+
+Playwright Test
+
+- 11 automated E2E test cases
+
+Cucumber
+
+- Login
+- Logout
+- Inventory
+- Checkout
+
+---
+
+## Severity Distribution
+
+Total test cases
+
+- Critical: 6
+- Normal: 5
+
+### Authentication
+
+- Critical: 3
+- Normal: 2
+
+### Inventory
+
+- Critical: 2
+
+### Checkout
+
+- Critical: 1
+- Normal: 3
+
+---
+
+## Average Execution Time
+
+Previous execution time
+
+**Approximately 28–30 seconds**
+
+Current execution time
+
+**Approximately 23 seconds**
+
+Performance improvement
+
+**20–25% faster** after implementing Session Caching.
+
+---
+
+# Coverage
+
+## Critical Business Flows
+
+- Successful Login
+- Failed Login
+- Locked User Validation
+- Product Inventory Validation
+- Add Product to Cart
+- Complete Checkout
+- Logout
 
 Coverage
-    (6/6) * 100 = 100%
 
-Defects identified during exploratory testing
-    Id: 001
-    Environment: 
-        - Windows 11
-        - Chrome 124
-        - Saucedemo.com
-        
-    Description
-        During exploratory tests has been identified the possibility fill the login fields with at least 500 characters, causing performance problems in the page, even restarting the page.
-    Reproduction conditions
-        to reproduce this issue needs follow this steps
-            1 Navigate to https://www.saucedemo.com/
-            2 Be sure that charges the login form
-            3 type at least 500 characters in username field
-            4 type at least 500 characters in password field
+**100%**
 
-    Observed behavior
-        Once the system receives the characters it is observable delays in mouse moves and erase or add any character, browser delays and even browser restarts.
+---
 
-    Desired behavior
-        should be necessary include in the web site backend validation that limit the amount of allowed characters in all the web site forms. it will avoid this performance problems.
+# Exploratory Testing
 
-    Severity.
-        To this bug  the severity is normal because is not a frequent case, however it could degrade the experience and cause unnecessary use of browser ram memory.
+## Defect 001
 
-If you want to run this project, you must prepare this configuration:
+### Environment
 
-DOTENV
-add a .env file on the project root
-install dotenv with this command: 
-    npm i -D dotenv
-add this lines in the playwright.config.ts file: 
+- Windows 11
+- Chrome
+- SauceDemo
 
-    import dotenv from 'dotenv';
-    dotenv.config();
+### Description
 
-ESLINT
-ESLint is a static testing tool that provides us the possibility to make a code strict review, allows identify bad configurations, imports unused or non called variables, in addition the tool generates a command output with all the issues.
+The login page accepts extremely long values (500+ characters) in the username and password fields, producing noticeable browser performance degradation and, in some cases, browser instability.
 
-complete this steps to configure correctly ESLint:
+### Steps to Reproduce
 
-add the eslint.config.js file on the project root
-add the tsconfig.json file on the project root
-install ESLint with this command:
-    npm install -D eslint @eslint/js typescript-eslint
-Edit your package.json file adding the next lines under description line:
-    "type": "module",
-    "scripts": {
-        "lint": "eslint .",
-        "test": "playwright test"
-    },
+1. Navigate to https://www.saucedemo.com
+2. Wait until the login form is displayed.
+3. Enter at least 500 characters in the username field.
+4. Enter at least 500 characters in the password field.
+
+### Observed Behavior
+
+The browser becomes slow while typing or deleting characters and may even restart due to excessive resource consumption.
+
+### Expected Behavior
+
+The application should validate the maximum allowed input length on the backend to prevent unnecessary resource usage and improve user experience.
+
+### Severity
+
+**Normal**
+
+---
+
+# Configuration
+
+## Environment Variables
+
+Create a `.env` file in the project root.
+
+Example:
+
+```env
+BASE_URL=https://www.saucedemo.com
+
+VALID_USER=standard_user
+LOCKED_USER=locked_out_user
+
+VALID_PASSWORD=secret_sauce
+INVALID_PASSWORD=invalidPassword
+```
+
+---
+
+# Objective
+
+This repository demonstrates practical experience with:
+
+- Playwright Test
+- Cucumber BDD
+- Page Object Model
+- TypeScript
+- Session Caching (storageState)
+- GitHub Actions
+- Allure Reporting
+- ESLint
+- CI/CD pipelines
+- Professional Automation Framework Design
+
+The project is intended to showcase the skills expected from a QA Automation Engineer / SDET using modern testing technologies and software engineering best practices.

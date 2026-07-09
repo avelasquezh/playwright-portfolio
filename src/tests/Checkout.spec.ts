@@ -1,17 +1,13 @@
 import { test, expect } from 'allure-playwright'; 
-import { LoginPage } from '../pages/LoginPage.js';
 import { InventoryPage } from '../pages/InventoryPage.js';
 import { CartPage } from '../pages/CartPage.js';
 import { CheckoutPage } from '../pages/CheckoutPage.js';
 import { CheckoutOverviewPage } from '../pages/CheckoutOverviewPage.js';
-import { loginData, checkoutData, inventoryProducts} from '../fixtures/test-data.js';
+import { checkoutData, inventoryProducts} from '../fixtures/test-data.js';
 import { label, epic, feature, story, severity, description, Severity } from 'allure-js-commons';
 
 test.beforeEach(async ({ page }) => {
-    const loginPage = new LoginPage(page);
-    await loginPage.navigate();
-    await loginPage.login(loginData.user.validUser, loginData.password.validPassword);
-    await expect (page.getByTestId('title')).toBeVisible();
+    await page.goto('/inventory.html');
     const inventory = new InventoryPage(page);
     await inventory.addToCart(inventoryProducts.Backpack.BTN);
     expect(await inventory.getCartCount()).toBe(1);
