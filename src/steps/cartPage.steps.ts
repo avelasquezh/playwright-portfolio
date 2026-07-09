@@ -2,7 +2,7 @@ import 'dotenv/config';
 import { When } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 import type { ICustomWorld } from '../support/world.js';
-import { CartPage } from '../pages/CartPage.js';
+import { CartPage } from '../pages/cartPage.js';
 import { inventoryProducts} from '../fixtures/test-data.js';
 
 When ('I go to cart page', async function(this: ICustomWorld) {

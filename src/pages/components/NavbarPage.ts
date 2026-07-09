@@ -8,7 +8,7 @@ export class NavbarPage {
     constructor(page: Page) {
         this.page = page;
         this.navbarButton = page.getByRole('button', { name: 'Open Menu' })
-        this.logoutButton = page.getByTestId('logout-sidebar-link');
+        this.logoutButton = page.locator('[data-test="logout-sidebar-link"]');
     }
     async logout(): Promise<void> {
         await this.navbarButton.click();

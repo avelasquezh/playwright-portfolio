@@ -2,7 +2,7 @@ import 'dotenv/config';
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 import type{ ICustomWorld } from '../support/world.js';
-import { LoginPage } from '../pages/LoginPage.js';
+import { LoginPage } from '../pages/loginPage.js';
 import { loginData } from '../fixtures/test-data.js';
 
 Given('I am on the login page', async function (this: ICustomWorld) {
@@ -29,7 +29,7 @@ Then('I can see the products page', async function (this: ICustomWorld) {
   await expect(this.page.locator('[data-test="title"]')).toBeVisible();
 });
 
-Then('I should see {string}', async function (this: ICustomWorld, message: string) {
+Then('I should see login {string}', async function (this: ICustomWorld, message: string) {
   await expect(this.page.getByText(message)).toBeVisible();
 });
 

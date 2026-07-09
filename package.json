@@ -10,7 +10,7 @@
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "allure:serve": "allure serve allure-results",
-    "cucumber": "node --import tsx/esm node_modules/@cucumber/cucumber/bin/cucumber.js --config cucumber.js"
+    "cucumber": "node --import tsx/esm ./node_modules/@cucumber/cucumber/bin/cucumber.js --config cucumber.js"
   },
   "repository": {
     "type": "git",

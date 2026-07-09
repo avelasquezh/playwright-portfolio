@@ -17,7 +17,7 @@ Feature: checkout products
     Scenario Outline: Unsuccessful checkout with invalid user data
         When    I go to checkout page
         And     I can fill the checkout form with "<Name>", "<LastName>" and "<PostalCode>"
-        Then    I should see "<message>"
+        Then    I should see checkout "<message>"
 
     Examples:
         | Name | LastName | PostalCode | message                         |
