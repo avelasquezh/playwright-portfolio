@@ -64,3 +64,10 @@ export const inventoryProducts = {
         Name: 'Test.allTheThings() T-Shirt (Red)',
     },    
 }
+export const apiData = {
+    newPost:{
+        title: 'Playwright Portfolio test',
+        body: 'API Testing',
+        userId: 1
+    }
+}

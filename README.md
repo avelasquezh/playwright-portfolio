@@ -1,369 +1,655 @@
 # Playwright Portfolio
 
-End-to-End (E2E) test automation framework built with **Playwright**, **TypeScript**, and **Cucumber**, following modern QA Automation and SDET best practices.
+A modern automation framework built with **Playwright** and **TypeScript** for **UI** and **API** testing, following industry best practices such as Page Object Model (POM), Cucumber BDD, Session Caching, CI/CD, static analysis and professional reporting.
 
 ---
 
-# Description
+# Overview
 
-This project demonstrates a scalable, maintainable, and production-oriented automation framework for **SauceDemo**.
+This repository demonstrates how to build a scalable and maintainable automation framework rather than a project tied to a single application.
 
-The repository contains two automation approaches:
+The UI automation currently targets **SauceDemo**, while the API automation uses **JSONPlaceholder** as a public REST API for integration testing.
 
-- **Playwright Test** for functional E2E automation.
-- **Cucumber (BDD)** using Gherkin feature files and reusable step definitions.
+The project showcases multiple automation concepts frequently used in enterprise environments:
 
-The framework follows industry best practices including:
-
-- Page Object Model (POM)
-- Session Caching (storageState)
-- Centralized test data
-- Static code analysis
-- CI/CD integration
-- Advanced reporting
-- Strong TypeScript typing
+- End-to-End (System Testing)
+- API Integration Testing
+- Behavior Driven Development (BDD)
+- Session Caching
+- CI/CD
+- Static Code Analysis
+- Professional Reporting
 
 ---
 
-# Tech Stack
+# Framework Evolution
 
-- Playwright
-- TypeScript
-- Cucumber (BDD)
-- Page Object Model (POM)
-- ESLint (Strict Configuration)
-- GitHub Actions
-- Allure Framework
-- dotenv
+This project has been progressively improved following industry best practices instead of implementing every pattern from the beginning.
+
+Current evolution:
+
+- ✅ Playwright project setup
+- ✅ TypeScript configuration
+- ✅ Page Object Model (POM)
+- ✅ Centralized Fixtures
+- ✅ Strict ESLint configuration
+- ✅ Allure Reporting
+- ✅ GitHub Actions CI/CD
+- ✅ Cucumber BDD
+- ✅ Authentication Session Caching
+- ✅ REST API Testing
+- ✅ Typed API Models
+- ✅ API Client Architecture
+
+Next planned improvements:
+
+- Screenplay Pattern
+- JSON Schema Contract Validation
+- Docker execution
+- Visual Testing
+- Performance Testing
+- Retry Strategies
+- API Request/Response Logging
+
+---
+
+# Testing Pyramid
+
+Following ISTQB recommendations, the framework currently covers multiple testing levels.
+
+| Testing Level | Technology | Status |
+|---------------|------------|--------|
+| Unit Testing | - | Planned |
+| Integration Testing | Playwright API | ✅ Implemented |
+| System Testing | Playwright UI | ✅ Implemented |
+| BDD | Cucumber | ✅ Implemented |
+
+API tests execute significantly faster than UI tests because they communicate directly with the backend and do not depend on browser rendering.
+
+---
+
+# Technologies
+
+| Technology | Purpose |
+|------------|---------|
+| Playwright | Browser automation and API testing |
+| TypeScript | Strong typing and maintainable code |
+| Cucumber | Behavior Driven Development (BDD) |
+| ESLint | Static code analysis |
+| Allure Report | Professional reporting |
+| dotenv | Environment variable management |
+| GitHub Actions | Continuous Integration |
 
 ---
 
 # Project Structure
 
 ```text
-src/
+.
+├── .github/
+│   └── workflows/
 │
-├── features/          # Gherkin feature files
-├── steps/             # Cucumber step definitions
-├── pages/             # Page Objects
-├── fixtures/          # Test data
-├── support/           # Hooks and World
-├── tests/             # Playwright Test suites
-└── utils/
-```
-
-Additional directories
-
-```text
-.github/workflows/     # GitHub Actions pipeline
-
-playwright/.auth/      # Cached authenticated session
-
-allure-results/
-allure-report/
-
-reports/
+├── playwright/
+│   └── .auth/
+│
+├── src/
+│
+│   ├── api/
+│   │   ├── clients/
+│   │   │   ├── JsonPlaceholderClient.ts
+│   │   │   ├── GitHubClient.ts
+│   │   │   └── ReqResClient.ts
+│   │   │
+│   │   └── models/
+│   │       └── Post.ts
+│   │
+│   ├── features/
+│   │
+│   ├── fixtures/
+│   │
+│   ├── pages/
+│   │
+│   ├── reports/
+│   │
+│   ├── steps/
+│   │
+│   ├── support/
+│   │
+│   ├── tests/
+│   │   ├── api/
+│   │   │   └── posts.api.spec.ts
+│   │   │
+│   │   ├── auth.setup.ts
+│   │   ├── Checkout.spec.ts
+│   │   ├── inventory.spec.ts
+│   │   ├── login.spec.ts
+│   │   └── logout.spec.ts
+│   │
+│   └── utils/
+│
+├── playwright.config.ts
+├── cucumber.js
+├── tsconfig.json
+├── eslint.config.js
+└── README.md
 ```
 
 ---
 
-# Features
+# Architecture
 
-- Page Object Model (POM)
-- Playwright Test
-- Cucumber (BDD)
-- Reusable Page Objects
-- Typed fixtures
-- Centralized test data
-- Session Caching using storageState
-- Secure credentials using .env
-- Strict TypeScript linting
-- GitHub Actions CI/CD
-- Allure reporting
-- Modular architecture
-- Separation of concerns
+## UI Automation
+
+The UI automation follows the **Page Object Model**.
+
+```
+Tests
+    ↓
+Page Objects
+    ↓
+Playwright
+    ↓
+Browser
+```
+
+Responsibilities
+
+- Tests → Business scenarios
+- Page Objects → UI interactions
+- Fixtures → Test data
+- Config → Framework configuration
 
 ---
 
-# Session Caching
+## API Automation
 
-The framework implements Playwright's **storageState** mechanism.
+The API automation follows a layered architecture.
 
-Authentication is executed only once using **auth.setup.ts**, generating a reusable authenticated session stored in:
+```
+Tests
+    ↓
+API Clients
+    ↓
+REST API
+```
 
-```text
+Responsibilities
+
+- Tests → Business validations
+- Clients → HTTP communication
+- Models → Response contracts
+
+---
+
+# UI Automation
+
+Current automated business flows
+
+- Login
+- Inventory
+- Add products to cart
+- Checkout
+- Logout
+
+Framework capabilities
+
+- Page Object Model
+- Session Caching
+- Parallel execution
+- Fixtures
+- Type-safe data
+- Cross-project configuration
+
+---
+
+# API Testing
+
+The framework also includes REST API automation using Playwright's native HTTP client (`request`).
+
+Unlike browser automation, API tests communicate directly with the server, making execution significantly faster and more reliable.
+
+Current API
+
+**JSONPlaceholder**
+
+Base URL
+
+```
+https://jsonplaceholder.typicode.com
+```
+
+Current scenarios
+
+### GET /posts
+
+- Status 200
+- Returns an array
+- Collection contains 100 posts
+
+### GET /posts/3
+
+- Status 200
+- Property validation
+- Contract validation
+- Data type validation
+
+### POST /posts
+
+- Status 201
+- Response body validation
+- Payload validation
+
+### GET /posts/999
+
+- Status 404
+- Resource not found validation
+
+Current API implementation includes
+
+- GET requests
+- POST requests
+- Contract validation
+- Type validation
+- Typed models
+- API Client architecture
+
+---
+
+# Why API Testing?
+
+Modern automation frameworks should not rely exclusively on browser automation.
+
+API testing offers several advantages:
+
+- Faster execution
+- Greater stability
+- Lower maintenance
+- Earlier defect detection
+- Better CI/CD performance
+- Independent from UI changes
+
+For this reason, this framework combines **Integration Testing** (API) and **System Testing** (UI).
+
+---
+
+# Authentication Session Caching
+
+Authentication persistence has been implemented using Playwright's **storageState**.
+
+Authentication is executed only once through
+
+```
+auth.setup.ts
+```
+
+The authenticated session is stored as
+
+```
 playwright/.auth/user.json
 ```
 
-Business tests reuse this session instead of performing the login flow repeatedly.
+Business tests reuse the stored session without executing the login flow again.
 
 Benefits
 
 - Faster execution
-- Reduced duplicated code
-- Lower maintenance effort
-- Better separation between authentication and business scenarios
+- Cleaner tests
+- Less duplicated code
+- Better maintainability
+- Better CI performance
 
-Current execution time after enabling Session Caching:
+Execution time decreased approximately from
 
-**Approximately 23 seconds** for the complete Playwright suite.
+**40 seconds → 23 seconds**
+
+---
+
+# BDD Support
+
+Business scenarios are also implemented using Cucumber.
+
+Current features
+
+- Login
+- Inventory
+- Checkout
+- Logout
+
+The framework includes
+
+- Feature files
+- Step Definitions
+- Shared World
+- Hooks
+
+---
+
+# API Models
+
+API responses are represented using strongly typed TypeScript models.
+
+Current models
+
+- Post
+
+Benefits
+
+- Compile-time validation
+- Better IntelliSense
+- Safer refactoring
+- Basic contract testing
+
+---
+
+# API Clients
+
+HTTP communication is encapsulated inside reusable clients.
+
+Current client
+
+```
+JsonPlaceholderClient
+```
+
+Future clients
+
+- ReqResClient
+- GitHubClient
+- SalesforceClient
+
+This architecture avoids duplicating HTTP logic across tests.
 
 ---
 
 # Reporting
 
-The framework integrates **Allure Framework** providing:
+Test execution reports are generated using **Allure Report**.
 
-- Execution details
-- Severity classification
-- Epic
-- Feature
-- Story
-- Test traceability
-- Historical trends (when configured)
+Reports include
 
-Reports can be:
+- Execution history
+- Severity
+- Features
+- Stories
+- Attachments
+- Screenshots
+- Traces
+- Categories
+- Execution duration
+
+Reports can be
 
 - Generated locally
-- Uploaded as GitHub Actions artifacts
-- Published through GitHub Pages
+- Published through GitHub Actions
+- Downloaded as CI artifacts
 
 ---
 
-# CI/CD
+# Static Code Analysis
 
-The project includes a GitHub Actions pipeline.
+The project uses **ESLint** with strict TypeScript rules.
 
-Pipeline stages:
+Current validations
+
+- Unsafe types
+- Unused variables
+- Invalid imports
+- Promise handling
+- Type safety
+- Code consistency
+
+---
+
+# Environment Variables
+
+Sensitive data is managed using `.env`.
+
+Example
+
+```env
+BASE_URL=
+VALID_USER=
+VALID_PASSWORD=
+```
+
+Environment variables are loaded through **dotenv**.
+
+---
+
+# Continuous Integration
+
+GitHub Actions automatically executes
 
 - Install dependencies
 - Install Playwright browsers
-- Static code analysis (ESLint)
-- Execute Playwright tests
-- Generate Allure Report
-- Upload execution artifacts
-
-Execution is automatically triggered on:
-
-- Push
-- Pull Request
+- Static code analysis
+- Playwright UI tests
+- Playwright API tests
+- Allure report generation
+- Artifact publication
 
 ---
 
-# Quality Standards
+# Execution Performance
 
-- Strict TypeScript configuration
-- ESLint Type-Aware Rules
-- Strong typing
-- Page Object Model
-- Separation of responsibilities
-- Reusable components
-- Secure Secrets management
-- Session reuse
+Average execution time
+
+| Suite | Average Time |
+|--------|-------------:|
+| Authentication Setup | ~6 s |
+| API Tests | ~2.5 s |
+| Complete UI Suite | ~23 s |
+
+API automation executes approximately **9 times faster** than browser automation because it communicates directly with the REST service without rendering the UI.
 
 ---
 
-# Automated Scope
+# Automation Metrics
 
-## Playwright Test
+## Playwright
+
+| Area | Tests |
+|------|------:|
+| Authentication | 3 |
+| Inventory | 2 |
+| Checkout | 4 |
+| Logout | 2 |
+| API | 4 |
+| Authentication Setup | 1 |
+
+**Total Playwright Tests: 16**
+
+---
+
+## Cucumber
+
+Implemented Features
 
 - Login
-- Logout
-- Inventory
-- Cart
-- Checkout
-
-## Cucumber (BDD)
-
-- Login
-- Logout
 - Inventory
 - Checkout
-
----
-
-# Available Commands
-
-## Run Playwright Tests
-
-```bash
-npm test
-```
-
-## Run Cucumber Tests
-
-```bash
-npm run cucumber
-```
-
-## Execute ESLint
-
-```bash
-npm run lint
-```
-
-## Generate Allure Report
-
-```bash
-npm run allure:generate
-```
-
-## Open Allure Report
-
-```bash
-npm run allure:open
-```
-
-## Serve Allure Report
-
-```bash
-npm run allure:serve
-```
-
----
-
-# Metrics
-
-## Automated Tests
-
-Playwright Test
-
-- 11 automated E2E test cases
-
-Cucumber
-
-- Login
 - Logout
-- Inventory
-- Checkout
+
+**BDD Scenarios: 11**
 
 ---
 
-## Severity Distribution
+## Overall Automation
 
-Total test cases
-
-- Critical: 6
-- Normal: 5
-
-### Authentication
-
-- Critical: 3
-- Normal: 2
-
-### Inventory
-
-- Critical: 2
-
-### Checkout
-
-- Critical: 1
-- Normal: 3
-
----
-
-## Average Execution Time
-
-Previous execution time
-
-**Approximately 28–30 seconds**
-
-Current execution time
-
-**Approximately 23 seconds**
-
-Performance improvement
-
-**20–25% faster** after implementing Session Caching.
+| Type | Total |
+|------|------:|
+| Playwright Tests | 16 |
+| Cucumber Scenarios | 11 |
+| Automated Executions | 27 |
 
 ---
 
 # Coverage
 
-## Critical Business Flows
+## UI Coverage
 
-- Successful Login
-- Failed Login
-- Locked User Validation
-- Product Inventory Validation
-- Add Product to Cart
-- Complete Checkout
+- Authentication
+- Inventory
+- Shopping Cart
+- Checkout
 - Logout
 
-Coverage
+Current Coverage
 
-**100%**
-
----
-
-# Exploratory Testing
-
-## Defect 001
-
-### Environment
-
-- Windows 11
-- Chrome
-- SauceDemo
-
-### Description
-
-The login page accepts extremely long values (500+ characters) in the username and password fields, producing noticeable browser performance degradation and, in some cases, browser instability.
-
-### Steps to Reproduce
-
-1. Navigate to https://www.saucedemo.com
-2. Wait until the login form is displayed.
-3. Enter at least 500 characters in the username field.
-4. Enter at least 500 characters in the password field.
-
-### Observed Behavior
-
-The browser becomes slow while typing or deleting characters and may even restart due to excessive resource consumption.
-
-### Expected Behavior
-
-The application should validate the maximum allowed input length on the backend to prevent unnecessary resource usage and improve user experience.
-
-### Severity
-
-**Normal**
+**100% of the selected critical business flows**
 
 ---
 
-# Configuration
+## API Coverage
 
-## Environment Variables
+- Resource collection
+- Single resource
+- Resource creation
+- Error handling
+- Basic contract validation
 
-Create a `.env` file in the project root.
+---
 
-Example:
+# Design Decisions
 
-```env
-BASE_URL=https://www.saucedemo.com
+Several architectural decisions were made to improve maintainability and scalability.
 
-VALID_USER=standard_user
-LOCKED_USER=locked_out_user
+Current design decisions
 
-VALID_PASSWORD=secret_sauce
-INVALID_PASSWORD=invalidPassword
+- Page Object Model for UI abstraction
+- Typed Fixtures
+- Authentication persistence using storageState
+- API Client Pattern
+- Typed API Models
+- Strict ESLint configuration
+- TypeScript Strict Mode
+- GitHub Actions CI/CD
+- Allure Reporting
+- Cucumber BDD
+
+---
+
+# Quality Practices
+
+This framework demonstrates
+
+- Page Object Model
+- API Client Pattern
+- Typed Models
+- Environment isolation
+- Session Caching
+- Parallel execution
+- REST API Testing
+- System Testing
+- Integration Testing
+- Continuous Integration
+- Static Code Analysis
+- Professional Reporting
+
+---
+
+# Roadmap
+
+Completed
+
+- Playwright
+- TypeScript
+- Page Object Model
+- Fixtures
+- ESLint
+- Allure
+- GitHub Actions
+- Cucumber
+- Session Caching
+- REST API Testing
+- Typed Models
+- API Clients
+
+Next
+
+- Screenplay Pattern
+- JSON Schema Validation
+- Docker
+- Visual Testing
+- Performance Testing
+- API Logging
+- Retry Strategies
+- Cross-browser Matrix
+
+---
+
+# Running the Project
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run all Playwright tests
+
+```bash
+npm test
+```
+
+Run only UI tests
+
+```bash
+npx playwright test --project=chromium
+```
+
+Run only API tests
+
+```bash
+npx playwright test --project=api
+```
+
+Generate authentication session
+
+```bash
+npx playwright test --project=setup
+```
+
+Run Cucumber scenarios
+
+```bash
+npm run cucumber
+```
+
+Generate Allure Report
+
+```bash
+npx allure generate allure-results --clean -o allure-report
+```
+
+Open Allure Report
+
+```bash
+npx allure open allure-report
 ```
 
 ---
 
-# Objective
+# Learning Objectives
 
-This repository demonstrates practical experience with:
+This repository demonstrates practical experience with
 
-- Playwright Test
-- Cucumber BDD
-- Page Object Model
+- Playwright
 - TypeScript
-- Session Caching (storageState)
+- REST API Testing
+- Page Object Model
+- API Client Pattern
+- Typed Models
+- Authentication Persistence
+- Cucumber BDD
+- Session Caching
 - GitHub Actions
 - Allure Reporting
 - ESLint
-- CI/CD pipelines
-- Professional Automation Framework Design
+- Modern Automation Framework Design
 
-The project is intended to showcase the skills expected from a QA Automation Engineer / SDET using modern testing technologies and software engineering best practices.
+---
+
+# Future Vision
+
+The long-term objective is to evolve this repository into a complete enterprise automation framework capable of supporting UI, API, contract, visual and performance testing under a unified architecture while adopting the Screenplay Pattern for improved scalability and maintainability.

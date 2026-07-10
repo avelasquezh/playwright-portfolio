@@ -50,6 +50,18 @@ export default defineConfig({
     name: 'setup',
     testMatch: '**/auth.setup.ts',
   },
+
+
+   {
+    name: 'api',
+    testMatch: 'src/tests/api/**/*.api.spec.ts',
+    use: {
+      baseURL: 'https://jsonplaceholder.typicode.com',
+    },
+  },
+
+
+
   {
     name: 'login-tests',
     testMatch: '**/login.spec.ts',
@@ -64,7 +76,7 @@ export default defineConfig({
       storageState: 'playwright/.auth/user.json',
       },
       dependencies: ['setup'],
-      testIgnore: '**/login.spec.ts',
+      testIgnore: ['src/tests/api/**/*.api.spec.ts'],
   }//,
 
     //{
